@@ -3,7 +3,7 @@
 
 
 while True:
-    value = input("Введите натуральное число\nили введите x для выхода: ")
+    value = input("Введите натуральное число или введите x для выхода: ")
     if value == "x":
         break
     elif (value.isdigit()) and (int(value) % 1 == 0):
