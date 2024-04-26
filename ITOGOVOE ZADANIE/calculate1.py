@@ -1,5 +1,6 @@
-def validate_ip(ip_address):
 #Функция для проверки корректности IP-адреса
+def validate_ip(ip_address):
+
 
     parts = ip_address.split('.')
     if len(parts) != 4:
@@ -10,8 +11,9 @@ def validate_ip(ip_address):
     return True
 
 
-def validate_subnet(subnet_mask):
 #Функция для проверки корректности маски подсети
+def validate_subnet(subnet_mask):
+
 
     if len(subnet_mask) != 2:
         return False
@@ -20,8 +22,9 @@ def validate_subnet(subnet_mask):
     return True
 
 
-def calculate_network_address(ip_address, subnet_mask):
  #Функция для вычисления сетевого адреса
+def calculate_network_address(ip_address, subnet_mask):
+
 
     ip_parts = [int(part) for part in ip_address.split('.')]
     mask_length = int(subnet_mask)
@@ -40,8 +43,9 @@ def calculate_network_address(ip_address, subnet_mask):
     return '.'.join(network_address)
 
 
-def calculate_broadcast_address(network_address, subnet_mask):
 #Функция для вычисления широковещательного адреса
+def calculate_broadcast_address(network_address, subnet_mask):
+
 
     ip_parts = [int(part) for part in network_address.split('.')]
     mask_length = int(subnet_mask)
@@ -60,18 +64,17 @@ def calculate_broadcast_address(network_address, subnet_mask):
     return '.'.join(broadcast_address)
 
 
+# Функция для вычисления IP-адреса первого узла
 def calculate_first_host(ip_address):
-
-   # Функция для вычисления IP-адреса первого узла
 
     ip_parts = [int(part) for part in ip_address.split('.')]
     ip_parts[3] += 1
     return '.'.join(map(str, ip_parts))
 
 
-def calculate_last_host(broadcast_address):
 
-    #Функция для вычисления IP-адреса последнего узла
+#Функция для вычисления IP-адреса последнего узла
+def calculate_last_host(broadcast_address):
 
     ip_parts = [int(part) for part in broadcast_address.split('.')]
     ip_parts[3] -= 1
